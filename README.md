@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Api vélib
 
-Things you may want to cover:
+App rails qui calcule les 5 stations de velib les plus proches du bureau de THP et le nombre de vélos disponibles.
 
-* Ruby version
+API Url: http://api.citybik.es/v2/
 
-* System dependencies
+Une attention particulière sera portée aux tests et au fait de ne pas bouriner l'API à chaque request.
+Le système doit être quasi instantanné la plupart du temps.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **bonus**: bouton refresh qui raffraichi les données sans recharger la page.
+- **extra bonus**: pouvoir spécifier l'addresse de départ.
