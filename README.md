@@ -1,10 +1,10 @@
+PROD : https://thpnext-gobike.herokuapp.com/
+
 # README
 
 Exercise by Denis Pasin ZARATAN during THP-NEXT training programme
 
 ## Api vélib
-
-PROD : https://thpnext-gobike.herokuapp.com/
 
 App rails qui calcule les 5 stations de velib les plus proches du bureau de THP et le nombre de vélos disponibles.
 
