@@ -1,5 +1,9 @@
 <h1>Bienvenue sur l'app gobike en version beta beta</h1>
 
-<%= render "index_velib" %>
+<div class="">
+  <%= link_to 'Services de vélo partagés en France', services_index_path, class: "badge badge-primary" %>
+</div>
 
-<%= render "index_FR" %>
+<div class="">
+  <%= link_to 'Stations vélib', velib_stations_index_path, class: "badge badge-primary" %>
+</div>
