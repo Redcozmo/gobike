@@ -7,3 +7,14 @@
 <div class="">
   <%= link_to 'Stations vélib', velib_stations_index_path, class: "badge badge-primary" %>
 </div>
+
+<div class="column">
+  5 stations les plus proches de :
+  <input type="text" name="latitude" value="48.8721312">
+  <input type="text" name="longitude" value="2.3466598">
+  <button class="btn btn-primary" type="button" name="button">Rafraichir</button>
+</div>
+
+<div class="">
+  <%= render "index_velib" %>
+</div>

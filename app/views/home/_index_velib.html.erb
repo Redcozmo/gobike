@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table id="myTable" data-toggle="table" class="table table-striped table-hover" style="width:100%">
+    <tr>
+      <th data-sortable="true">latitude</th>
+      <th data-sortable="true">longitude</th>
+      <th data-sortable="true">name</th>
+      <th data-sortable="true">status</th>
+      <th data-sortable="true">slots</th>
+      <th data-sortable="true">free bikes</th>
+    </tr>
+    <% @closest_stations.each do |station| %>
+    <tr>
+      <td><%= station.latitude %></td>
+      <td><%= station.longitude %></td>
+      <td><%= station.name %></td>
+      <td><%= station.status %></td>
+      <td><%= station.slots %></td>
+      <td><%= station.free_bikes %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
