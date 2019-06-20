@@ -21,16 +21,16 @@ class ClosestStations
 
   def closest_stations
     @stations = Station.all
-    distance = {}
-    selection = []
+    distances = {}
+    selection = {}
     @stations.map do |station|
-      distance[station.station_id] =
+      distances[station.station_id] =
         Haversine.new(
           [station.longitude, station.latitude],
           [@longitude, @latitude]
         ).distance
     end
-    distance.values.min(@num).each { |e| selection << distance.key(e) }
-    @stations.select { |station| selection.find { |id| id == station.station_id } }
+    distances.values.min(@num).each { |distance| selection[distances.key(distance)] = distance }
+    [@stations.select { |station| selection.keys.find { |id| id == station.station_id } }, distances]
   end
 end

@@ -17,7 +17,7 @@
       <td><%= station.status %></td>
       <td><%= station.slots %></td>
       <td><%= station.free_bikes %></td>
-      <td></td>
+      <td><%= @distances[station.station_id].to_i %></td>
     </tr>
     <% end %>
   </table>
