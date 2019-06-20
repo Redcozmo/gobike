@@ -2,6 +2,6 @@
 
 class VelibStationsController < ApplicationController
   def index
-    @stations = Citybike.new.stations
+    @stations = Station.new.stations
   end
 end
