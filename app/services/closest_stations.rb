@@ -23,8 +23,14 @@ class ClosestStations
     @stations = Station.all
     distance = {}
     selection = []
-    @stations.map { |station| distance[station.station_id] = Haversine.new([station.longitude, station.latitude], [@longitude, @latitude]).distance }
-    distance.values.min(num).each { |e| selection << distance.key(e) }
+    @stations.map do |station|
+      distance[station.station_id] =
+        Haversine.new(
+          [station.longitude, station.latitude],
+          [@longitude, @latitude]
+        ).distance
+    end
+    distance.values.min(@num).each { |e| selection << distance.key(e) }
     @stations.select { |station| selection.find { |id| id == station.station_id } }
   end
 end
