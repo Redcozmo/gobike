@@ -11,7 +11,7 @@ class CreateStations < ActiveRecord::Migration[5.2]
       t.float :latitude
       t.float :longitude
       t.string :name
-      t.timestamp :timestamp
+      t.timestamp :update_date
 
       t.timestamps
     end

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_06_17_231805) do
     t.float "latitude"
     t.float "longitude"
     t.string "name"
-    t.datetime "timestamp"
+    t.datetime "update_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
