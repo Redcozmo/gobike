@@ -11,4 +11,8 @@ class Station < ApplicationRecord
   def stations
     data_velib.parsed_response
   end
+
+  def self.freshness
+    Station.all.max_by(&:update_date).update_date
+  end
 end

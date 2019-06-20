@@ -1,4 +1,7 @@
 <h1>Bienvenue sur l'app gobike en version beta beta</h1>
+<div class="badge badge-secondary">
+  Fraicheur des données : <%= @stations.freshness %>
+</div>
 
 <div class="">
   <%= link_to 'Services de vélo partagés en France', services_index_path, class: "badge badge-primary" %>
@@ -18,3 +21,5 @@
 <div class="">
   <%= render "index_velib" %>
 </div>
+
+<div id="mapid"></div>
