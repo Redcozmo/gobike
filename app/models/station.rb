@@ -13,6 +13,6 @@ class Station < ApplicationRecord
   end
 
   def self.freshness
-    Station.all.max_by(&:update_date).update_date
+    all.max_by(&:update_date).update_date
   end
 end
