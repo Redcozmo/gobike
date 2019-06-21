@@ -7,6 +7,11 @@ production:
   - default
   - mailers
 :schedule:
-  station_refresh:
-    cron: '0 * * * * *'
-    class: StationRefreshWorker
+  stations_refresh:
+    cron: '0 0 1 * * *' # Every days at 01:00
+    class: StationsRefreshWorker
+    max_retries: 1
+  bikes_refresh:
+    cron: '0 * * * * *' # Every minutes at the first second
+    class: BikesRefreshWorker
+    max_retries: 7
