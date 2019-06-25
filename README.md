@@ -46,6 +46,7 @@ Only one branch and no use of circle CI because this app is developped just by m
   - Tests to perform deeply and add of simplecov gem
   - Button for data refreshing without charging page (AJAX)
   - Map display (Leaflets and Mpabox)
+  - Change distance calculation with Haversine formula to real route evaluation
   - Extend use for every town services of http://api.citybik.es/v2/
   - Time data post processing (KPI)
   - Add meteo API (openweathermap : https://openweathermap.org/)
