@@ -4,7 +4,7 @@ class ClosestStations
   #
   # Description :
   # => Use the ClosestStations class to calculate the closest stations
-  #   to a position with two lon/lat coordnate pairs.
+  #   to a position with two lon/lat coordinate pairs.
   #
   # Output :
   # => array with <num> closest stations from input coordinate point

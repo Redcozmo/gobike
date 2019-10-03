@@ -4,7 +4,7 @@ class Haversine
   #
   # Description :
   # => use the Haversine class to calculate the distance between
-  #    two lon/lat coordnate pairs.
+  #    two lon/lat coordinate pairs.
   #
   # Output :
   # => distance available in meters.
