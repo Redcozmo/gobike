@@ -6,5 +6,6 @@ class StationsRefreshWorker
 
   def perform
     UpdateDb.new.update_stations
+    UpdateDb.new.delete_old_stations
   end
 end

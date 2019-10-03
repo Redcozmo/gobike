@@ -12,7 +12,7 @@ class UpdateDb
   # Example usage :
   # => UpdateDb.new.update_bikes
   # => UpdateDb.new.update_stations
-  # => UpdateDb.new.delete_stations
+  # => UpdateDb.new.delete_old_stations
 
   def initialize
     puts "Request on API : api.citybik.es/v2/networks/velib"
@@ -57,12 +57,18 @@ class UpdateDb
     end
   end
 
-  def delete_stations
-    puts " --> DB update with stations information - delete stations"
+  def delete_old_stations
+    puts " --> DB update with stations information - delete old stations"
     station_to_delete = Station.all.reject do |db_station|
       @stations_from_api["network"]["stations"].find { |api_station| api_station["id"] == db_station.station_id }
     end
-    station_to_delete&.each(&:delete)
+    if station_to_delete && station_to_delete.count != 0
+      puts "Il y a #{station_to_delete.count} stations en DB qui n'existent plus sur l'API : elles vont être supprimées."
+      station_to_delete.each { |station| puts station.name }
+      station_to_delete.each(&:delete)
+    else
+      puts "Il y a #{station_to_delete.count} station en DB qui n'existent plus sur l'API."
+    end
   end
 
   def create_station(api_station)
