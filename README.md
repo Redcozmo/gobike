@@ -1,17 +1,56 @@
-PROD : https://thpnext-gobike.herokuapp.com/
+# GoBike app
 
-# README
+## App in PRODUCTION : https://thpnext-gobike.herokuapp.com/
 
-Exercise by Denis Pasin ZARATAN during THP-NEXT training programme
+## Run it locally
+ 
+Run further commands :
 
-## Api vélib
+  - `git clone` this repos
+  - `bundle install`
+  - `rails db:create db:migrate`
+  - `docker-compose -up`
+  - `sidekiq`
+  - `rails server`
 
-App rails qui calcule les 5 stations de velib les plus proches du bureau de THP et le nombre de vélos disponibles.
+## Instructions
 
-API Url: http://api.citybik.es/v2/
+Exercise gave by Denis Pasin ZARATAN during THP-NEXT training programme (The Hacking Project).
 
-Une attention particulière sera portée aux tests et au fait de ne pas bouriner l'API à chaque request.
-Le système doit être quasi instantanné la plupart du temps.
+--> Rails App which evaluate the 5 vélib's closest stations from THP offices and free bikes available.
 
-- **bonus**: bouton refresh qui raffraichi les données sans recharger la page.
-- **extra bonus**: pouvoir spécifier l'addresse de départ.
+Pay attention to app optimization and so to :
+  - tests
+  - not to update all the database at each request to the API
+  - optimize time for user
+
+  - **bonus**: refresh button which refresh datas without page charging.
+  - **extra bonus**: starting point adress specifing available.
+
+## Use of
+
+  - API url : http://api.citybik.es/v2/
+  - Docker/Docker-compose
+  - Husky (pre-commit, pre-push)
+  - Rspec
+  - Rubocop (relaxed-rubocop)
+  - Sidekiq / Redis for background jobs
+  - Gemset
+  - Heroku for production app
+
+Only one branch and no use of circle CI because this app is developped just by me for training, no team issues.
+
+## To do / Working on progress
+
+  - Make the search from adress (geocoder gem ?)
+  - Tests to perform deeply and add of simplecov gem
+  - Button for data refreshing without charging page (AJAX)
+  - Map display (Leaflets and Mpabox)
+  - Change distance calculation with Haversine formula to real route evaluation
+  - Extend use for every town services of http://api.citybik.es/v2/
+  - Time data post processing (KPI)
+  - Add meteo API (openweathermap : https://openweathermap.org/)
+
+## Thanks to
+
+Thanks to http://api.citybik.es for open datas
