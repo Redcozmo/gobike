@@ -43,8 +43,46 @@
   }
   initmap();
 
-  // Post marker
+  // extend class icons
+  var LeafIcon = L.Icon.extend({
+  	options: {
+  		shadowUrl: '<%= image_url("marker_green.png") %>',
+  		iconSize:     [5, 10]
+  	}
+  });
+
+  var greenIcon = L.icon({
+    iconUrl: '<%= image_url("marker_green.png") %>',
+    iconSize: [30, 45],
+    iconAnchor: [15, 45],
+    popupAnchor: [0, -45],
+  });
+
+  var homeIcon = L.icon({
+    iconUrl: '<%= image_url("icon_home.png") %>',
+    iconSize: [45, 60],
+    iconAnchor: [22.5, 60],
+    popupAnchor: [0, -60],
+  });
+
+  // L.icon = function (options) {
+  // 	return new L.Icon(options);
+  // };
+
+  // var greenIcon = new LeafIcon({iconUrl: 'marker_green.png'}),
+  //     redIcon = new LeafIcon({iconUrl: 'marker_red.png'}),
+  //     blackIcon = new LeafIcon({iconUrl: 'marker_black.png'});
+  //     homeIcon =  new LeafIcon({iconUrl: 'icon_home.png'});
+
+  // Stations marker
   <% @closest_stations.each do |station| %>
-    var markerstation = L.marker([<%= station.latitude.to_f %>, <%= station.longitude.to_f %>]).addTo(map);
+    var markerstation = L.marker([<%= station.latitude.to_f %>, <%= station.longitude.to_f %>], {
+                                 icon: greenIcon
+    }).addTo(map).bindPopup("<p><strong>Nom : <%= station.name %></strong></p><p>Vélos libres : <%= station.free_bikes %></p>");
   <% end %>
+
+  // User position marker
+  var markerstation = L.marker([48.8721312, 2.3466598], {
+                               icon: homeIcon
+  }).addTo(map).bindPopup("Je pars d'ici !");
 </script>
