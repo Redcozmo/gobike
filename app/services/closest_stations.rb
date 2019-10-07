@@ -15,7 +15,7 @@ class ClosestStations
   attr_accessor :longitude, :latitude, :num
 
   def initialize(coord, num)
-    @longitude, @latitude = coord
+    @latitude, @longitude = coord
     @num = num
   end
 
@@ -26,8 +26,8 @@ class ClosestStations
     @stations.map do |station|
       distances[station.station_id] =
         Haversine.new(
-          [station.longitude, station.latitude],
-          [@longitude, @latitude]
+          [station.latitude, station.longitude],
+          [@latitude, @longitude]
         ).distance
     end
     distances.values.min(@num).each { |distance| selection[distances.key(distance)] = distance }
