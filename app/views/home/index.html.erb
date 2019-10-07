@@ -23,3 +23,28 @@
 </div>
 
 <div id="mapid"></div>
+
+<!-- Leaflet's JS -->
+<script type="text/javascript">
+  var map;
+
+  function initmap() {
+    // set up the map
+    map = new L.Map('mapid').setView([48.8721312, 2.3466598], 16);
+
+    // create the tile layer with correct attribution
+    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+    var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
+
+    // start the map in South-East England
+    // map.setZoom(1).setView([30, 0]);
+    map.addLayer(osm);
+  }
+  initmap();
+
+  // Post marker
+  <% @closest_stations.each do |station| %>
+    var markerstation = L.marker([<%= station.latitude.to_f %>, <%= station.longitude.to_f %>]).addTo(map);
+  <% end %>
+</script>
