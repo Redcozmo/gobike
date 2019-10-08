@@ -13,6 +13,7 @@ class Station < ApplicationRecord
   end
 
   def self.freshness
-    all.max_by(&:update_date).update_date
+    date = all.max_by(&:update_date).update_date
+    date.strftime("%d/%m/%Y - %Hh%Mm%Ss")
   end
 end
